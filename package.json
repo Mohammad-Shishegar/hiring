@@ -19,6 +19,7 @@
     "noa-jalali-datepicker": "^0.1.4",
     "path": "^0.12.7",
     "react": "^19.0.0",
+    "dexie": "^4.0.0",
     "react-dom": "^19.0.0",
     "react-lazy-load-image-component": "^1.6.3",
     "react-multi-date-picker": "^4.5.2",
@@ -39,5 +40,10 @@
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0",
     "vite-tsconfig-paths": "^5.1.4"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
