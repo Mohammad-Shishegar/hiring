@@ -13,17 +13,16 @@ const ASSESSMENTS_QUERY_KEY = "assessments";
  * Hook to get all assessments
  */
 export const useGetAllAssessments = (enabled: boolean = true) => {
-  return useGet(
-    ASSESSMENTS_API_BASE,
-    [ASSESSMENTS_QUERY_KEY],
-    enabled
-  );
+  return useGet(ASSESSMENTS_API_BASE, [ASSESSMENTS_QUERY_KEY], enabled);
 };
 
 /**
  * Hook to get assessment by job ID
  */
-export const useGetAssessmentByJobId = (jobId: string | undefined, enabled: boolean = true) => {
+export const useGetAssessmentByJobId = (
+  jobId: string | undefined,
+  enabled: boolean = true
+) => {
   return useQuery<Assessment | undefined>({
     queryKey: [ASSESSMENTS_QUERY_KEY, "byJobId", jobId],
     queryFn: async () => {
@@ -39,39 +38,29 @@ export const useGetAssessmentByJobId = (jobId: string | undefined, enabled: bool
  * Hook to create a new assessment
  */
 export const useCreateAssessment = () => {
-  return usePost(
-    ASSESSMENTS_API_BASE,
-    [ASSESSMENTS_QUERY_KEY]
-  );
+  return usePost(ASSESSMENTS_API_BASE, [ASSESSMENTS_QUERY_KEY]);
 };
 
 /**
  * Hook to update an assessment
  */
 export const useUpdateAssessment = (jobId: string) => {
-  return usePut(
-    `${ASSESSMENTS_API_BASE}/${jobId}`,
-    [ASSESSMENTS_QUERY_KEY]
-  );
+  return usePut(`${ASSESSMENTS_API_BASE}/${jobId}`, [ASSESSMENTS_QUERY_KEY]);
 };
 
 /**
  * Hook to submit assessment responses
  */
 export const useSubmitAssessmentResponse = (jobId: string) => {
-  return usePost(
-    `${ASSESSMENTS_API_BASE}/${jobId}/submit`,
-    [ASSESSMENTS_QUERY_KEY, "responses"]
-  );
+  return usePost(`${ASSESSMENTS_API_BASE}/${jobId}/submit`, [
+    ASSESSMENTS_QUERY_KEY,
+    "responses",
+  ]);
 };
 
 /**
  * Hook to delete an assessment
  */
 export const useDeleteAssessment = () => {
-  return useDelete(
-    ASSESSMENTS_API_BASE,
-    [ASSESSMENTS_QUERY_KEY]
-  );
+  return useDelete(ASSESSMENTS_API_BASE, [ASSESSMENTS_QUERY_KEY]);
 };
-
