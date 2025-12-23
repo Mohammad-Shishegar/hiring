@@ -1,21 +1,24 @@
-import Button from "#base/src/components/button";
-import { CustomTooltip } from "#base/src/components/tooltip/CustomTooltip";
-import clsx from "clsx";
-import { AiOutlineMenuUnfold } from "react-icons/ai";
-import { IoSettingsOutline } from "react-icons/io5";
-import { MdNotificationsActive } from "react-icons/md";
-import UserInfo from "./UserInfo";
 import Box from "#base/src/components/box";
-import { FaUserPlus } from "react-icons/fa";
+import Button from "#base/src/components/button";
 import Typography from "#base/src/components/typography";
-import { NavLink } from "react-router-dom";
+import { useAuth } from "#base/src/helpers/contexts/AuthContext";
+import clsx from "clsx";
+import { FaUserPlus } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { NAV_LINKS } from "src/utils/constants";
 
 const Header = () => {
-  const hasNotification = false;
+const {setToken} = useAuth()
+const navigate = useNavigate()
+const handleLogin  =()=>{
+  setToken("token" , {name : "HR"})
+  navigate("/dashboard")
+}
+
   return (
     <div
       className={clsx(
-        "flex bg-slate-100 items-center justify-center min-h-[64px] py-6 px-5 z-[50]"
+        "flex bg-slate-100 items-center justify-center min-h-[64px] py-6 z-[50]"
       )}
     >
       <div
@@ -35,34 +38,21 @@ const Header = () => {
             جاب تلنت
           </Typography>
         </div>
-        <div>
-          <NavLink
-            to="/dashboard"
-            className={({ isActive }) =>
-              isActive ? "text-blue-600 font-semibold" : "text-gray-500"
-            }
-          >
-            Dashboard
-          </NavLink>
-          <NavLink
-            to="/dashboard"
-            className={({ isActive }) =>
-              isActive ? "text-blue-600 font-semibold" : "text-gray-500"
-            }
-          >
-            Dashboard
-          </NavLink>
-          <NavLink
-            to="/dashboard"
-            className={({ isActive }) =>
-              isActive ? "text-blue-600 font-semibold" : "text-gray-500"
-            }
-          >
-            Dashboard
-          </NavLink>
+        <div className={clsx("flex items-center justify-center gap-x-5")}>
+          <nav className="hidden md:flex space-x-8">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-gray-700 hover:underline hover:underline-offset-6 hover:text-emerald-600 font-medium transition-colors duration-200"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
         </div>
         <div>
-          <Button>Login</Button>
+          <Button onClick={()=>handleLogin()} className={clsx("bg-green-500 text-white hover:bg-green-700")} size="xl">Login</Button>
         </div>
       </div>
     </div>

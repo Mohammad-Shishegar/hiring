@@ -4,6 +4,7 @@ import { lazy, Suspense } from "react";
 // const Test = lazy(() => import("../Pages/MainPages/TableExample"));
 const Test = lazy(() => import("../Pages/MainPages/AssessmentsExample"));
 const Test2 = lazy(() => import("../Pages/MainPages/Test"));
+const Dashboard = lazy(() => import("../Pages/MainPages/Dashboard"));
 
 export const MainRoutes = [
   {
@@ -11,6 +12,14 @@ export const MainRoutes = [
     element: (
       <Suspense fallback={<Loading />}>
         <Test />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <Dashboard />
       </Suspense>
     ),
   },
