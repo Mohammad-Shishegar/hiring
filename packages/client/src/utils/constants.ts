@@ -37,20 +37,20 @@ export const PLATFORM_STATS  = [
 export const FEATURES = [
   {
     id: '1',
-    title: 'Easy To Post Hiring',
-    description: 'Create and publish job listings in minutes. Help you reach the right talent.',
+    title: 'آسان برای انتشار استخدام',
+    description: 'ایجاد و انتشار پست های استخدام در دقیقه. کمک به شما برای رسیدن به نیروی مناسب.',
     icon: 'briefcase',
   },
   {
     id: '2',
-    title: 'Manage Candidates',
-    description: 'Track, review, and organize. Gain full visibility into every stage of the pipeline.',
+    title: 'مدیریت کاندیداها',
+    description: 'ردیابی, بازرسی و سازماندهی. دریافت تمامی نمایشگاه از هر مرحله از لایه انتخاب.',
     icon: 'users',
   },
   {
     id: '3',
-    title: 'Assessment Tools',
-    description: 'Evaluate candidates with comprehensive assessments. Make data-driven hiring decisions.',
+    title: 'ابزارهای ارزیابی',
+    description: 'ارزیابی کاندیداها با ارزیابی های کامل. تصمیم گیری با داده های محور.',
     icon: 'clipboard-check',
   },
 ];

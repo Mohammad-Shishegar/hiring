@@ -35,10 +35,28 @@ export const getAssessmentByJobId = async (jobId: string) => {
   return assessmentsDb.assessments.where('jobId').equals(jobId).first();
 };
 
-export const getAllAssessments = async () => {
+export const getAllAssessments = async (params?: { page?: number; pageSize?: number }) => {
   const assessments = await assessmentsDb.assessments.toArray();
-  // console.log("getAllAssessments - Retrieved from database:", assessments);
-  return assessments;
+
+  if (params?.page && params?.pageSize) {
+    const start = (params.page - 1) * params.pageSize;
+    const end = start + params.pageSize;
+
+    return {
+      data: assessments.slice(start, end),
+      total: assessments.length,
+      page: params.page,
+      pageSize: params.pageSize,
+    };
+  }
+
+  // Default: return full list but keep pagination meta for table consumers
+  return {
+    data: assessments,
+    total: assessments.length,
+    page: params?.page ?? 1,
+    pageSize: params?.pageSize ?? assessments.length,
+  };
 };
 
 export const saveAssessment = async (assessment: Assessment) => {

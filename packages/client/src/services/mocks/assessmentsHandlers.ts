@@ -9,17 +9,19 @@ import {
 import { delay, maybeFail } from "../../utils/latency";
 
 export const assessmentsHandlers: HttpHandler[] = [
-  http.get("/assessments", async () => {
+  http.get("/assessments", async ({ request }) => {
     await delay();
 
-    // Get all assessments from the database
-    const assessments = await getAllAssessments();
-    // console.log("GET /assessments - Found assessments:", assessments);
+    const url = new URL(request.url);
+    const page = url.searchParams.get("page");
+    const pageSize = url.searchParams.get("pageSize");
 
-    return HttpResponse.json({
-      data: assessments,
-      total: assessments.length,
+    const assessments = await getAllAssessments({
+      page: page ? parseInt(page) : undefined,
+      pageSize: pageSize ? parseInt(pageSize) : undefined,
     });
+
+    return HttpResponse.json(assessments);
   }),
 
   http.post("/assessments", async ({ request }) => {

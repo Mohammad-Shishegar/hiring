@@ -95,7 +95,12 @@ export const getAllCandidates = async (params?: {
       };
     }
     
-    return { data: candidates, total: candidates.length };
+    return { 
+      data: candidates, 
+      total: candidates.length,
+      page: params?.page ?? 1,
+      pageSize: params?.pageSize ?? candidates.length
+    };
   } catch (error) {
     console.error('Error in getAllCandidates:', error);
     // Return empty result instead of throwing

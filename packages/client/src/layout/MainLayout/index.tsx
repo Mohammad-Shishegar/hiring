@@ -14,7 +14,7 @@ const MainLayout = ({ children }: MainLayoutType) => {
         <Header />
       </header>
       <main className="flex-1">
-        <div className="mx-auto w-full ">{children}</div>
+        <div className="mx-auto w-full mt-[100px]">{children}</div>
       </main>
       <footer className="w-full mt-auto">
         <Footer />
