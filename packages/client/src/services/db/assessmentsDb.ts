@@ -35,6 +35,10 @@ export const getAssessmentByJobId = async (jobId: string) => {
   return assessmentsDb.assessments.where('jobId').equals(jobId).first();
 };
 
+export const getAssessmentById = async (id: string) => {
+  return assessmentsDb.assessments.get(id);
+};
+
 export const getAllAssessments = async (params?: { page?: number; pageSize?: number }) => {
   const assessments = await assessmentsDb.assessments.toArray();
 

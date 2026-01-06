@@ -108,6 +108,10 @@ export const getAllCandidates = async (params?: {
   }
 };
 
+export const getCandidateById = async (id: string) => {
+  return candidatesDb.candidates.get(id);
+};
+
 export const updateCandidate = async (id: string, updates: Partial<Candidate>) => {
   await candidatesDb.candidates.update(id, { ...updates, updatedAt: new Date() });
   return candidatesDb.candidates.get(id);

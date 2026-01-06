@@ -101,6 +101,10 @@ export const createJob = async (jobData: Omit<Job, 'id' | 'createdAt' | 'slug' |
   return newJob;
 };
 
+export const getJobById = async (id: string) => {
+  return jobsDb.jobs.get(id);
+};
+
 export const updateJob = async (id: string, updates: Partial<Job>) => {
   await jobsDb.jobs.update(id, updates);
   return jobsDb.jobs.get(id);
