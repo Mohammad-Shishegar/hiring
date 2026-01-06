@@ -9,6 +9,7 @@ import "./index.css";
 import App from "src/App";
 import { BrowserRouter } from "react-router-dom";
 import { initializeAssessments } from "./services/db/assessmentsDb";
+import { initializeJobs } from "./services/db/jobsDb";
 
 // Initialize MSW worker in development
 async function enableMocking() {
@@ -30,8 +31,8 @@ async function enableMocking() {
 // Initialize database and start MSW worker, then render app
 enableMocking()
   .then(() => {
-    // Initialize assessments database
-    return initializeAssessments();
+    // Initialize databases needed for mocks
+    return Promise.all([initializeAssessments(), initializeJobs()]);
   })
   .then(() => {
     createRoot(document.getElementById("root")!).render(
