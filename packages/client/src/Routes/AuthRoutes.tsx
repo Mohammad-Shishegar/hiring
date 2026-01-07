@@ -1,5 +1,6 @@
 import Loading from "#base/src/components/loading";
 import { lazy, Suspense } from "react";
+import Dashboard from "src/Pages/MainPages/Dashboard";
 
 const Login = lazy(() => import("../Pages/AuthPages/Login"));
 const Forgotpass = lazy(() => import("../Pages/AuthPages/Forgotpass"));
@@ -31,5 +32,14 @@ export const AuthRoutes = [
       </Suspense>
     ),
     handle: { title: "registration" },
+  },
+  {
+    path: "/",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <Dashboard />
+      </Suspense>
+    ),
+    handle: { title: "introduction" },
   },
 ];

@@ -11,5 +11,5 @@ export const GuestRoute = ({ children }: IGuestRouteProps) => {
 
   if (loadingAuth) return <Loading />;
 
-  return !isAuth ? children : <Navigate to="/" replace />;
+  return !isAuth ? children : <Navigate to="/hr-dashboard" replace />;
 };

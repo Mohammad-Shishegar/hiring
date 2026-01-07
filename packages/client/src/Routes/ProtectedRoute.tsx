@@ -9,8 +9,8 @@ interface IProtectedRouteProps {
 export const ProtectedRoute = ({ children }: IProtectedRouteProps) => {
   const { isAuth, loadingAuth } = useAuth();
 
-  if (false) return <Loading />;
+  if (loadingAuth) return <Loading />;
 
-  // return isAuth ? children : <Navigate to="/login" replace />;
-  return true ? children : <Navigate to="/login" replace />;
+  return isAuth ? children : <Navigate to="/" replace />;
+  // return true ? children : <Navigate to="/login" replace />;
 };

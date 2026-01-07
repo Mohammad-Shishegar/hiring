@@ -8,22 +8,14 @@ const Dashboard = lazy(() => import("../Pages/MainPages/Dashboard"));
 const HRDashboard = lazy(() => import("../Pages/MainPages/HrDashboard"));
 
 export const MainRoutes = [
-  {
-    path: "/",
-    element: (
-      <Suspense fallback={<Loading />}>
-        <Test />
-      </Suspense>
-    ),
-  },
-  {
-    path: "/dashboard",
-    element: (
-      <Suspense fallback={<Loading />}>
-        <Dashboard />
-      </Suspense>
-    ),
-  },
+  // {
+  //   path: "/test",
+  //   element: (
+  //     <Suspense fallback={<Loading />}>
+  //       <Test />
+  //     </Suspense>
+  //   ),
+  // },
   {
     path: "/hr-dashboard",
     element: (
