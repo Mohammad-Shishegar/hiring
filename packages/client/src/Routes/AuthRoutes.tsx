@@ -1,6 +1,6 @@
 import Loading from "#base/src/components/loading";
 import { lazy, Suspense } from "react";
-import Dashboard from "src/Pages/MainPages/Dashboard";
+import Dashboard from "../Pages/AuthPages/Dashboard";
 
 const Login = lazy(() => import("../Pages/AuthPages/Login"));
 const Forgotpass = lazy(() => import("../Pages/AuthPages/Forgotpass"));

@@ -1,12 +1,10 @@
 import Box from "#base/src/components/box";
-import Button from "#base/src/components/button";
 import Typography from "#base/src/components/typography";
 import { useAuth } from "#base/src/helpers/contexts/AuthContext";
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { FaUserPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { NAV_LINKS } from "src/utils/constants";
 
 const Header = () => {
   const { deleteToken } = useAuth();
@@ -37,12 +35,12 @@ const Header = () => {
 
   return (
     <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto   ">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div
             onClick={() => navigate("/dashboard")}
-            className="cursor-pointer"
+            className="cursor-pointer "
           >
             <div className={clsx("flex  items-center justify-center gap-x-3")}>
               <Box

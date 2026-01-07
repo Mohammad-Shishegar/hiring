@@ -4,7 +4,7 @@ import { lazy, Suspense } from "react";
 // const Test = lazy(() => import("../Pages/MainPages/TableExample"));
 const Test = lazy(() => import("../Pages/MainPages/AssessmentsExample"));
 const Test2 = lazy(() => import("../Pages/MainPages/Test"));
-const Dashboard = lazy(() => import("../Pages/MainPages/Dashboard"));
+const Dashboard = lazy(() => import("../Pages/AuthPages/Dashboard"));
 const HRDashboard = lazy(() => import("../Pages/MainPages/HrDashboard"));
 
 export const MainRoutes = [

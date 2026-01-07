@@ -13,8 +13,8 @@ const MainLayout = ({ children }: MainLayoutType) => {
       <header className="w-full fixed top-0 z-[100]">
         <Header />
       </header>
-      <main className="flex-1">
-        <div className="mx-auto w-full mt-[100px]">{children}</div>
+      <main className="flex-1  ">
+        <div className="mx-auto max-w-7xl mt-[100px]">{children}</div>
       </main>
       <footer className="w-full mt-auto">
         <Footer />
