@@ -27,7 +27,7 @@ const HrDashboard = () => {
   const quikAccess = [
     {
       key: "totalJobs",
-      address: "job",
+      address: "jobs",
       title: "کل آگهی‌ها",
       description: "تعداد کل موقعیت‌ها",
       icon: (
